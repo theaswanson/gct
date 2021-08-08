@@ -1,3 +1,13 @@
-<input type="text" placeholder="Game ID" [(ngModel)]="gameId" />
-<textarea placeholder="Codes" [(ngModel)]="code" cols="17" rows="16"></textarea>
-<button (click)="generate()">Generate</button>
+<div class="page">
+  <div class="form">
+    <mat-form-field color="accent" appearance="fill">
+      <mat-label>Game ID</mat-label>
+      <input matInput color="primary" type="text" [(ngModel)]="gameId" />
+    </mat-form-field>
+    <mat-form-field color="accent" appearance="fill">
+      <mat-label>Code</mat-label>
+      <textarea matInput [(ngModel)]="code" cols="17" rows="16"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="generate()">Generate</button>
+  </div>
+</div>
