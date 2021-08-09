@@ -2,16 +2,44 @@
   <div class="form">
     <div class="header">
       <h1>GCT Generator</h1>
-      <mat-icon class="info" matTooltip="Generate Gecko Code Type files." aria-hidden="false" aria-label="Information">info</mat-icon>
+      <mat-icon class="info" matTooltip="Generate Gecko Code Type files" aria-hidden="false" aria-label="Information">
+        info</mat-icon>
     </div>
+
+    <app-cache-controls [(gcts)]="gcts"></app-cache-controls>
+
     <mat-form-field color="accent" appearance="fill">
       <mat-label>Game ID</mat-label>
-      <input matInput color="primary" type="text" [(ngModel)]="gameId" />
+      <input matInput color="primary" type="text" [(ngModel)]="selectedGCT.gameId" />
     </mat-form-field>
-    <mat-form-field color="accent" appearance="fill">
-      <mat-label>Code</mat-label>
-      <textarea matInput [(ngModel)]="code" cols="17" rows="16"></textarea>
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="generate()">Generate</button>
+
+    <div class="gct">
+      <div class="codes">
+        <div class="header">
+          <h3>Codes</h3>
+          <button mat-mini-fab color="primary" aria-label="New code" (click)="newCode(0)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+        <div class="list">
+          <mat-list role="list" *ngFor="let code of selectedGCT.codes; let i = index">
+            <mat-list-item matRipple role="listitem" (click)="selectCode(i)">{{code.name}}</mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+
+      <div class="code">
+        <mat-form-field color="accent" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput color="primary" type="text" [(ngModel)]="selectedCode.name" />
+        </mat-form-field>
+        <mat-form-field color="accent" appearance="fill">
+          <mat-label>Code</mat-label>
+          <textarea matInput [(ngModel)]="selectedCode.value" cols="17" rows="16"></textarea>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <button mat-raised-button color="primary" (click)="generate(0)">Generate</button>
   </div>
 </div>

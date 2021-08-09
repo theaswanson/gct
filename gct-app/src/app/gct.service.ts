@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Code } from './Code';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,18 @@ export class GctService {
   
   constructor() { }
 
-  generate(code: string): number[] {
-    code = code.replace(/\s/g, '');
+  generate(codes: Code[]): number[] {
+    let allCodes = '';
+    for (let code of codes) {
+      let codeText = code.value;
+      codeText = codeText.replace(/\s/g, '');
+      this.validate(codeText);
+      allCodes = allCodes.concat(codeText);
+    }
+    return this.gct(allCodes);
+  }
 
+  private validate(code: string) {
     if (code.length === 0) {
       throw new Error('Code is empty.');
     }
@@ -24,8 +34,6 @@ export class GctService {
     if (code.length % 16 !== 0) {
       throw new Error('Invalid code format.');
     }
-
-    return this.gct(code);
   }
 
   private gct(code: string): number[] {

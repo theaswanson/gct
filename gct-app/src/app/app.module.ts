@@ -10,10 +10,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ClearCacheDialogComponent } from './clear-cache-dialog/clear-cache-dialog.component';
+import { CacheControlsComponent } from './cache-controls/cache-controls.component';
+import { MatListModule } from '@angular/material/list';
+import { MatRippleModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ClearCacheDialogComponent,
+    CacheControlsComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +31,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDialogModule,
+    MatListModule,
+    MatRippleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
