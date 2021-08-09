@@ -14,25 +14,28 @@ export class GctService {
   generate(codes: Code[]): number[] {
     let allCodes = '';
     for (let code of codes) {
-      let codeText = code.value;
+      let codeText = code?.value;
+      if (codeText === undefined) {
+        throw new Error(`Code for '${code.name}' is undefined.`);
+      }
       codeText = codeText.replace(/\s/g, '');
-      this.validate(codeText);
+      this.validate(codeText, code.name);
       allCodes = allCodes.concat(codeText);
     }
     return this.gct(allCodes);
   }
 
-  private validate(code: string) {
+  private validate(code: string, name: string) {
     if (code.length === 0) {
-      throw new Error('Code is empty.');
+      throw new Error(`Code for '${name}' is empty.`);
     }
 
     if (!/^[0-9A-Fa-f]*$/.test(code)) {
-      throw new Error('Code contains invalid characters.');
+      throw new Error(`Code for '${name}' contains invalid characters.`);
     }
 
     if (code.length % 16 !== 0) {
-      throw new Error('Invalid code format.');
+      throw new Error(`Invalid code format for '${name}'.`);
     }
   }
 

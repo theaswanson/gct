@@ -20,31 +20,31 @@ describe('GctService', () => {
 
     describe('given an empty string', () => {
       beforeEach(() => {
-        codes = [{ value: '' } as Code];
+        codes = [{ name: 'empty string', value: '' } as Code];
       });
 
       it('throws an error', () => {
-        expect(() => act()).toThrowError('Code is empty.');
+        expect(() => act()).toThrowError('Code for \'empty string\' is empty.');
       });
     });
 
     describe('given a string with non-hex characters', () => {
       beforeEach(() => {
-        codes = [{ value: '1234567890ABCDEFabcdefX' } as Code];
+        codes = [{ name: 'string with non-hex characters', value: '1234567890ABCDEFabcdefX' } as Code];
       });
 
       it('throws an error', () => {
-        expect(() => act()).toThrowError('Code contains invalid characters.');
+        expect(() => act()).toThrowError('Code for \'string with non-hex characters\' contains invalid characters.');
       });
     });
 
     describe('given a string with incorrect format', () => {
       beforeEach(() => {
-        codes = [{ value: '12345678 1234567' } as Code];
+        codes = [{ name: 'string with incorrect format', value: '12345678 1234567' } as Code];
       });
 
       it('throws an error', () => {
-        expect(() => act()).toThrowError('Invalid code format.');
+        expect(() => act()).toThrowError('Invalid code format for \'string with incorrect format\'.');
       });
     });
 
