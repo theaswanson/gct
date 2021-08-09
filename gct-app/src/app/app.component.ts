@@ -44,6 +44,10 @@ export class AppComponent {
     this.selectedCode = this.selectedGCT.codes[codeIndex];
   }
 
+  deleteCode(codeIndex: number): void {
+    this.selectedGCT.codes.splice(codeIndex, 1);
+  }
+
   newCode(gctIndex: number): void {
     this.gcts[gctIndex].codes.push({ name: 'New Code' } as Code);
   }

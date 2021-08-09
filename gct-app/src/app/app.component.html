@@ -23,7 +23,9 @@
         </div>
         <div class="list">
           <mat-list role="list" *ngFor="let code of selectedGCT.codes; let i = index">
-            <mat-list-item matRipple role="listitem" (click)="selectCode(i)">{{code.name}}</mat-list-item>
+            <mat-list-item matRipple role="listitem" (click)="selectCode(i)">{{code.name}}<mat-icon
+                (click)="deleteCode(i)">delete</mat-icon>
+            </mat-list-item>
           </mat-list>
         </div>
       </div>
