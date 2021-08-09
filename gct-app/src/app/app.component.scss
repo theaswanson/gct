@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   color: white;
   background-color: #353535;
 
@@ -30,9 +30,14 @@
 
     .gct {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
+      row-gap: 2rem;
       column-gap: 2rem;
       padding: 2rem 0;
+
+      @media (min-width: 900px) {
+        grid-template-columns: 1fr 1fr;
+      }
 
       .codes {
         padding: 2rem;
