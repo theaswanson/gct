@@ -32,7 +32,7 @@ jobs:
   
       - name: Build for production
         working-directory: ./gct-app
-        run: ng build --configuration production
+        run: ng build --configuration production --base-href /gct/
       
       - name: Deploy to S3
         uses: shallwefootball/s3-upload-action@master
