@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CacheService } from './cache.service';
-import { Code } from './Code';
-import { File } from './File';
-import { GCT } from './GCT';
-import { GctService } from './gct.service';
-import { NotificationService } from './notification.service';
+import { Code } from './models/Code';
+import { File } from './models/File';
+import { GCT } from './models/GCT';
+import { CacheService } from './services/cache/cache.service';
+import { GctService } from './services/gct/gct.service';
+import { NotificationService } from './services/notification/notification.service';
 
 @Component({
   selector: 'app-root',

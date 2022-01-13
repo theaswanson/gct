@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-clear-cache-dialog',
   templateUrl: './clear-cache-dialog.component.html',
   styleUrls: ['./clear-cache-dialog.component.scss']
 })
-export class ClearCacheDialogComponent implements OnInit {
+export class ClearCacheDialogComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

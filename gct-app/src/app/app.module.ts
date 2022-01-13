@@ -11,10 +11,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ClearCacheDialogComponent } from './clear-cache-dialog/clear-cache-dialog.component';
-import { CacheControlsComponent } from './cache-controls/cache-controls.component';
+import { ClearCacheDialogComponent } from './components/clear-cache-dialog/clear-cache-dialog.component';
 import { MatListModule } from '@angular/material/list';
 import { MatRippleModule } from '@angular/material/core';
+import { CacheControlsComponent } from './components/cache-controls/cache-controls.component';
 
 @NgModule({
   declarations: [

@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { Code } from './Code';
+import { Code } from 'src/app/models/Code';
 
 import { GctService } from './gct.service';
 

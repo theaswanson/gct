@@ -1,16 +1,16 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CacheService } from '../cache.service';
+import { GCT } from 'src/app/models/GCT';
+import { CacheService } from 'src/app/services/cache/cache.service';
+import { NotificationService } from 'src/app/services/notification/notification.service';
 import { ClearCacheDialogComponent } from '../clear-cache-dialog/clear-cache-dialog.component';
-import { GCT } from '../GCT';
-import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-cache-controls',
   templateUrl: './cache-controls.component.html',
   styleUrls: ['./cache-controls.component.scss']
 })
-export class CacheControlsComponent implements OnInit {
+export class CacheControlsComponent {
 
   @Input() gcts: GCT[];
   @Output() gctsChange: EventEmitter<GCT[]>;
@@ -22,9 +22,6 @@ export class CacheControlsComponent implements OnInit {
   ) {
     this.gcts = [];
     this.gctsChange = new EventEmitter<GCT[]>();
-  }
-
-  ngOnInit(): void {
   }
 
   save(): void {
