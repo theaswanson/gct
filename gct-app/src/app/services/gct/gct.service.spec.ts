@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { Code } from './Code';
+import { Code } from 'src/app/models/Code';
 
 import { GctService } from './gct.service';
 
@@ -52,6 +52,11 @@ describe('GctService', () => {
       beforeEach(() => {
         codes = [{ value: '12345678 9ABCDEF0' } as Code];
       });
+
+      it('does not modify the original codes', () => {
+        act();
+        expect(codes[0].value).toEqual('12345678 9ABCDEF0');
+      })
 
       it('returns a gct', () => {
         const actual = act();

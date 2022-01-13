@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { GCT } from './GCT';
+import { GCT } from 'src/app/models/GCT';
 
 @Injectable({
   providedIn: 'root'
