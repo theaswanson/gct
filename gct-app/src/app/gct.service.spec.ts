@@ -53,6 +53,11 @@ describe('GctService', () => {
         codes = [{ value: '12345678 9ABCDEF0' } as Code];
       });
 
+      it('does not modify the original codes', () => {
+        act();
+        expect(codes[0].value).toEqual('12345678 9ABCDEF0');
+      })
+
       it('returns a gct', () => {
         const actual = act();
         const expected = [0x00, 0xD0, 0xC0, 0xDE, 0x00, 0xD0, 0xC0, 0xDE]
